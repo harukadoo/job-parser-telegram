@@ -8,8 +8,8 @@ export interface IJob extends Document {
     technologies: string[],
     url: string,
     source: 'dou.ua' | 'djinni.co' | 'other',
-    postedAt: Date,
+    postedAt?: Date,
     notified: boolean,
-    createdAt: Date,
-    updatedAt: Date,
+    createdAt?: Date,
+    updatedAt?: Date,
 }

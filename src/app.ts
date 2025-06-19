@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
 import connectDB from './db';
+import helmet from 'helmet';
 
 dotenv.config();
 
@@ -9,6 +10,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
+app.use(helmet());
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err.stack);
@@ -24,7 +26,7 @@ const startServer = async () => {
     });
 
   } catch (error) {
-    console.error("Failed to start server due to database connection error.");
+    console.error('Failed to start server due to database connection error.');
     process.exit(1);
   }
 };
